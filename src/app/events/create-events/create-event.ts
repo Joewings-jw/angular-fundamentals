@@ -30,14 +30,9 @@ export class CreateEventComponent {
 
     constructor(private router: Router, 
         private event_service :EventsService){
-
     }
 
-    ngOnInit(){
- 
-    }
-
-
+    ngOnInit(){}
 
     save_event(form_values){
         this.event_service.save_event(form_values);
