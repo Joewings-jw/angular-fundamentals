@@ -35,9 +35,11 @@ export class CreateEventComponent {
     ngOnInit(){}
 
     save_event(form_values){
-        this.event_service.save_event(form_values);
-        this.is_dity = false;
-        this.router.navigate(['/events'])
+        this.event_service.save_event(form_values).subscribe(()=> {
+            this.is_dity = false;
+            this.router.navigate(['/events'])
+        })
+       
     }
 
     cancel(){

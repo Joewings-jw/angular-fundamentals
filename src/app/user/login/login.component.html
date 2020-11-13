@@ -18,4 +18,8 @@
     <button [disabled]="login_form.invalid"  class="btn btn-primary">Login</button>
     <button type="button" class="btn btn-default" (click)="cancel()">Cancel</button>
   </form>
+  <br>
+  <div *ngIf="login_invalid" class="alert alert-danger">
+    invalid login info!
+  </div>
 </div>

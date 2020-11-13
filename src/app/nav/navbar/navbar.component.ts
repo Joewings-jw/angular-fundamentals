@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { EventsService, ISession } from 'src/app/events';
+import { EventsService, IEvent, ISession } from 'src/app/events';
 import { AuthService } from 'src/app/user/auth.service';
 
 @Component({
@@ -11,6 +11,7 @@ import { AuthService } from 'src/app/user/auth.service';
 export class NavbarComponent implements OnInit {
   search_term:string = ""
   found_sessions: ISession[]
+ 
   
 
   constructor(public auth: AuthService,
@@ -28,5 +29,6 @@ export class NavbarComponent implements OnInit {
     )
 
   }
+
 
 }

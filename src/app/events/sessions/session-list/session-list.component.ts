@@ -12,6 +12,7 @@ export class SessionListComponent implements OnChanges {
   @Input() sessions: ISession[]
   @Input() filterBy: string
   @Input() sortBy: string
+  @Input() event_id: number
   visible_sessions: ISession[]=[]
 
 
@@ -28,10 +29,10 @@ export class SessionListComponent implements OnChanges {
 
   toggle_vote(session: ISession){
     if(this.user_hasVoted(session)){
-      this.voter_service.delete_voter(session, 
+      this.voter_service.delete_voter(this.event_id, session, 
         this.auth.current_user.user_name)
     }else {
-      this.voter_service.add_voter(session, 
+      this.voter_service.add_voter(this.event_id, session, 
         this.auth.current_user.user_name)
     }
     if(this.sortBy === 'votes'){
