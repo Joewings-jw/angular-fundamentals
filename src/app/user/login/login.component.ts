@@ -9,6 +9,7 @@ import { AuthService } from '../auth.service';
 export class LoginComponent implements OnInit {
   user_name:string;
   password:string;
+  login_invalid = false
 
   constructor(public auth: AuthService, private router:Router) { }
 
@@ -16,7 +17,14 @@ export class LoginComponent implements OnInit {
   }
   login(form){
     this.auth.login_user(form.user_name, form.password)
-    this.router.navigate(['events'])
+      .subscribe(res=>{
+        if(!res){
+          this.login_invalid = true
+        }else {
+          this.router.navigate(['events'])
+        }
+      })
+    
   }
 
   cancel(){
